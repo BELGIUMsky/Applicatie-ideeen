@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BELGIUMskyMainApp", "BELGIUMskyMainApp\BELGIUMskyMainApp.csproj", "{8AE862AE-B03D-4F0C-B9A1-B7686AE7CF36}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Topics", "Topics", "{A62D2978-6E50-40BF-890B-F5C2103C98C4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "experimental", "experimental", "{6521EA68-82C0-4130-B892-1A170902D489}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructures", "DataStructures\DataStructures.csproj", "{4569EBDC-18D7-4F51-8270-92E674707843}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8AE862AE-B03D-4F0C-B9A1-B7686AE7CF36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AE862AE-B03D-4F0C-B9A1-B7686AE7CF36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AE862AE-B03D-4F0C-B9A1-B7686AE7CF36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AE862AE-B03D-4F0C-B9A1-B7686AE7CF36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4569EBDC-18D7-4F51-8270-92E674707843}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4569EBDC-18D7-4F51-8270-92E674707843}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4569EBDC-18D7-4F51-8270-92E674707843}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4569EBDC-18D7-4F51-8270-92E674707843}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4569EBDC-18D7-4F51-8270-92E674707843} = {6521EA68-82C0-4130-B892-1A170902D489}
+	EndGlobalSection
+EndGlobal

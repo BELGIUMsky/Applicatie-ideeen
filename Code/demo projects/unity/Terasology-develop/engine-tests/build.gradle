@@ -1,0 +1,53 @@
+// Engine tests are split out due to otherwise quirky project dependency issues with module tests extending engine tests
+
+// Grab all the common stuff like plugins to use, artifact repositories, code analysis config
+apply from: "$rootDir/config/gradle/artifactory.gradle"
+
+import groovy.json.JsonSlurper
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Java Section                                                                                                      //
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Put resources in the same folder as java classes to make them available in the sandbox
+sourceSets {
+    main {
+        java {
+            output.classesDir 'build/classes/main'
+            output.resourcesDir 'build/classes/main'
+        }
+    }
+}
+
+// Read the internal version out of the engine-tests module.txt
+def moduleFile = file('src/main/resources/module.txt')
+
+if (!moduleFile.exists()) {
+    println "Failed to find module.txt for engine-tests"
+    throw new GradleException("Failed to find module.txt for engine-tests")
+}
+
+println "Scanning for version in module.txt for engine-tests"
+def slurper = new JsonSlurper()
+def moduleConfig = slurper.parseText(moduleFile.text)
+
+// Gradle uses the magic version variable when creating the jar name (unless explicitly set differently)
+version = moduleConfig.version
+
+// Jenkins-Artifactory integration catches on to this as part of the Maven-type descriptor
+group = 'org.terasology.engine'
+
+println "Version for $project.name loaded as $version for group $group"
+
+// Primary dependencies definition
+dependencies {
+
+    // Dependency on the engine itself
+    compile project(':engine')
+
+    // Test lib dependencies
+    compile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'org.mockito', name: 'mockito-all', version: '1.10.19'
+    compile group: 'org.jboss.shrinkwrap', name: 'shrinkwrap-depchain-java7', version: '1.1.3'
+}
+
